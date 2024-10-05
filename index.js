@@ -1,9 +1,11 @@
 const express = require('express');
 const mysql = require('mysql');
+const bodyParser = require('body-parser'); // Import body-parser
 
 const app = express();
 const port = 3000;
-
+// Middleware to parse JSON bodies
+app.use(bodyParser.json()); // Use body-parser to parse JSON
 // Middleware to parse JSON requests
 app.use(express.json());
 
@@ -24,13 +26,37 @@ connection.connect((err) => {
     console.log('Connected to MySQL database.');
 });
 
-// Routes for Users
+// Routes for get all  Users
 app.get('/api/users', (req, res) => {
     connection.query('SELECT * FROM Users', (err, results) => {
         if (err) return res.status(500).json({ error: err });
         res.json(results);
     });
 });
+
+// Routes for get single user 
+app.post('/api/user', (req, res) => {  // Change GET to POST
+    const { email, password } = req.body; // Get email and password from body
+
+    if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required' });
+    }
+
+    // Use a parameterized query to prevent SQL injection
+    const query = 'SELECT * FROM Users WHERE Email = ? AND Password = ?';
+    connection.query(query, [email, password], (err, results) => {
+        if (err) return res.status(500).json({ error: err });
+
+        // Check if any user matches the email and password
+        if (results.length === 0) {
+            return res.status(401).json({ error: 'Invalid email or password' });
+        }
+
+        // If there's a match, return the user details
+        res.json(results[0]); // Return the first matching user
+    });
+});
+
 
 // Create a new user
 app.post('/api/users', (req, res) => {

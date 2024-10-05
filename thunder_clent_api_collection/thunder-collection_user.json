@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "user",
     "collectionId": "eb7198af-531a-446a-a4d0-d1cd52441f48",
-    "dateExported": "2024-10-05T10:13:53.121Z",
+    "dateExported": "2024-10-05T10:26:58.885Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -44,7 +44,29 @@
                     "value": "application/json"
                 }
             ]
+        },
+        {
+            "_id": "46973d44-490f-4666-8300-d930ec6bf9dc",
+            "colId": "eb7198af-531a-446a-a4d0-d1cd52441f48",
+            "containerId": "",
+            "name": "Get Single User",
+            "url": "http://localhost:3000/api/user",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-10-05T10:22:10.328Z",
+            "modified": "2024-10-05T10:26:53.749Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"admin@example.com\",\n\"password\": \"hashed_password\"\n}",
+                "form": []
+            }
         }
     ],
-    "ref": "tuhenomwhvgD1V2I46c8p_F7ypTTSHFMZhZKNYdPxpUl2q3YmTMBaS3X43iAhr_g9bNojDDPme7-Sdkk7yCVIg"
+    "ref": "tuhenomwhvgD1V2I46c8p9u8Q2w8dB8h3KpSE5SbTjLW6oeYSO6-fHW64TA3YeS6Jk3f982uogSoYieYYYGJMA"
 }
