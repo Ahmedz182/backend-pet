@@ -1,0 +1,50 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "user",
+    "collectionId": "eb7198af-531a-446a-a4d0-d1cd52441f48",
+    "dateExported": "2024-10-05T10:13:53.121Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a4950641-04f3-445d-8428-8f7c240f5be0",
+            "colId": "eb7198af-531a-446a-a4d0-d1cd52441f48",
+            "containerId": "",
+            "name": "Add user",
+            "url": "http://localhost:3000/api/users",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-10-05T10:13:03.998Z",
+            "modified": "2024-10-05T10:13:03.998Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"Username\": \"Shafaq\",\n    \"Password\": \"hashed_password\",\n    \"Email\": \"new_user11@example.com\",\n    \"UserType\": \"Customer\",\n    \"MobileNo\": \"123-456-7890\",\n    \"Address\": \"123 New St\",\n     \"imgUrl\": \"http://example.com/customer2.jpg\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "9f81e941-2de4-4546-821b-09cc931fcfbf",
+            "colId": "eb7198af-531a-446a-a4d0-d1cd52441f48",
+            "containerId": "",
+            "name": "Get all users",
+            "url": "http://localhost:3000/api/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-10-05T10:13:09.730Z",
+            "modified": "2024-10-05T10:13:09.730Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ]
+        }
+    ],
+    "ref": "tuhenomwhvgD1V2I46c8p_F7ypTTSHFMZhZKNYdPxpUl2q3YmTMBaS3X43iAhr_g9bNojDDPme7-Sdkk7yCVIg"
+}

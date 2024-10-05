@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Pet",
+    "collectionId": "b2ba3269-c093-4869-a295-b84ee41d6a67",
+    "dateExported": "2024-10-05T10:13:28.228Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "ab0477c0-528e-45a0-b5e9-27e9ffc289e2",
+            "colId": "b2ba3269-c093-4869-a295-b84ee41d6a67",
+            "containerId": "",
+            "name": "GEt Pet",
+            "url": "http://localhost:3000/api/pets",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-10-05T10:12:48.510Z",
+            "modified": "2024-10-05T10:12:48.510Z",
+            "headers": []
+        },
+        {
+            "_id": "3f3013fc-a6a1-4856-96c8-8db4212191ab",
+            "colId": "b2ba3269-c093-4869-a295-b84ee41d6a67",
+            "containerId": "",
+            "name": "ADD pet",
+            "url": "http://localhost:3000/api/pets",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-10-05T10:12:54.346Z",
+            "modified": "2024-10-05T10:12:54.346Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"Name\": \"Leo \",\r\n    \"Age\": 2,\r\n    \"Breed\": \"Golden Retriever\",\r\n    \"Size\": \"Large\",\r\n    \"Color\": \"Golden\",\r\n    \"EnergyLevel\": \"High\",\r\n    \"Friendliness\": \"High\",\r\n    \"EaseOfTraining\": \"Easy\",\r\n    \"Status\": \"Available\",\r\n    \"Price\": 500.00,\r\n    \"VendorID\": 6,\r\n    \"imgUrl\": \"http://example.com/buddy.jpg\"\r\n}\r\n",
+                "form": []
+            }
+        }
+    ],
+    "ref": "lJxeXsf7l1MqfvDW7E90odee0s4QO_Z03bjjGKmnTWqVMEsRBhqCKS-Gzwn1f6LG_0gRioglSwpSyyV1LN6ZAw"
+}

@@ -1,0 +1,28 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Vendor",
+    "collectionId": "1511523d-8121-4db7-8b05-d0c53e13a0a2",
+    "dateExported": "2024-10-05T10:14:09.730Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "13de1269-c71e-4bd5-b66c-50b916177162",
+            "colId": "1511523d-8121-4db7-8b05-d0c53e13a0a2",
+            "containerId": "",
+            "name": "Get Vendors",
+            "url": "http://localhost:3000/api/vendors",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-10-05T10:14:05.119Z",
+            "modified": "2024-10-05T10:14:05.119Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ]
+        }
+    ],
+    "ref": "HOpaCRFkTptQ3KRH1mu3zmgma5ShtTtcTNGX8scdOSNrwHWQG2Sng9anjlWBQJsGUCo1SZogFiv4xDDh3Jy38w"
+}
