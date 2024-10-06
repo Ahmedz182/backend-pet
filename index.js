@@ -101,13 +101,40 @@ app.post('/api/adoptionBookings', (req, res) => {
     });
 });
 
-// Routes for Vendors
+// Routes for get all Vendors
 app.get('/api/vendors', (req, res) => {
     connection.query('SELECT * FROM Vendors', (err, results) => {
         if (err) return res.status(500).json({ error: err });
         res.json(results);
     });
 });
+
+
+// Routes for get Single Vendors
+
+app.post('/api/vendor', (req, res) => {  // Change GET to POST
+    const { email, password } = req.body; // Get email and password from body
+
+    if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required' });
+    }
+
+    // Use a parameterized query to prevent SQL injection
+    const query = 'SELECT * FROM Vendors WHERE Email = ? AND Password = ?';
+    connection.query(query, [email, password], (err, results) => {
+        if (err) return res.status(500).json({ error: err });
+
+        // Check if any vendor matches the email and password
+        if (results.length === 0) {
+            return res.status(401).json({ error: 'Invalid email or password' });
+        }
+
+        // If there's a match, return the vendor details
+        res.json(results[0]); // Return the first matching vendor
+    });
+});
+
+
 
 // Create a new vendor
 app.post('/api/vendors', (req, res) => {
@@ -129,11 +156,34 @@ app.get('/api/petStatusChangeLog', (req, res) => {
 // Create a new status change log entry
 app.post('/api/petStatusChangeLog', (req, res) => {
     const newLog = req.body;
+
+    // First, insert the new log into PetStatusChangeLog
     connection.query('INSERT INTO PetStatusChangeLog SET ?', newLog, (err, result) => {
-        if (err) return res.status(500).json({ error: err });
-        res.status(201).json({ id: result.insertId, ...newLog });
+        if (err) {
+            return res.status(500).json({ error: err });
+        }
+
+        // If insert is successful, update the pet's status
+        const petID = newLog.PetID;  // Assuming the PetID is passed in the request body
+        const newStatus = newLog.NewStatus;  // Assuming the new status is passed in the request body
+
+        connection.query('UPDATE Pets SET Status = ? WHERE PetID = ?', [newStatus, petID], (updateErr) => {
+            if (updateErr) {
+                // Rollback the log insert if the update fails
+                connection.query('DELETE FROM PetStatusChangeLog WHERE LogID = ?', [result.insertId], (rollbackErr) => {
+                    if (rollbackErr) {
+                        console.error("Rollback failed:", rollbackErr);
+                    }
+                });
+                return res.status(500).json({ error: updateErr });
+            }
+
+            // If both operations are successful, respond with the new log entry
+            res.status(201).json({ id: result.insertId, ...newLog });
+        });
     });
 });
+
 
 // Define the default route
 app.get('/api/', (req, res) => {

@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Pet",
     "collectionId": "b2ba3269-c093-4869-a295-b84ee41d6a67",
-    "dateExported": "2024-10-05T10:13:28.228Z",
+    "dateExported": "2024-10-06T09:10:37.967Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -39,7 +39,29 @@
                 "raw": "{\r\n    \"Name\": \"Leo \",\r\n    \"Age\": 2,\r\n    \"Breed\": \"Golden Retriever\",\r\n    \"Size\": \"Large\",\r\n    \"Color\": \"Golden\",\r\n    \"EnergyLevel\": \"High\",\r\n    \"Friendliness\": \"High\",\r\n    \"EaseOfTraining\": \"Easy\",\r\n    \"Status\": \"Available\",\r\n    \"Price\": 500.00,\r\n    \"VendorID\": 6,\r\n    \"imgUrl\": \"http://example.com/buddy.jpg\"\r\n}\r\n",
                 "form": []
             }
+        },
+        {
+            "_id": "fc3bdece-8059-4665-a516-63f705109073",
+            "colId": "b2ba3269-c093-4869-a295-b84ee41d6a67",
+            "containerId": "",
+            "name": "petStatusChangeLog",
+            "url": "http://localhost:3000/api/petStatusChangeLog",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-10-06T09:10:31.062Z",
+            "modified": "2024-10-06T09:10:31.062Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"PetID\": 8,\r\n    \"PreviousStatus\": \"Available\",\r\n    \"NewStatus\": \"Booked\",\r\n    \"ChangeDate\": \"2024-10-06 12:00:00\",\r\n    \"ChangedBy\": 1\r\n}\r\n",
+                "form": []
+            }
         }
     ],
-    "ref": "lJxeXsf7l1MqfvDW7E90odee0s4QO_Z03bjjGKmnTWqVMEsRBhqCKS-Gzwn1f6LG_0gRioglSwpSyyV1LN6ZAw"
+    "ref": "lJxeXsf7l1MqfvDW7E90oSVJa4Ak_uWgkg5vdpx6B2w6QTs_XXU7ljRNoWe5CU30bZNU8U8QrRKF1KitXX1hRQ"
 }
