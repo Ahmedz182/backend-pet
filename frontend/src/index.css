@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+.menu-item {
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+.search {
+  outline: none;
+  background-color: transparent;
+}
+
+.bg-img {
+  border-radius: 84% 16% 55% 45% / 44% 35% 65% 56%;
+  background: hsla(119, 69%, 49%, 1);
+
+  background: linear-gradient(
+    225deg,
+    rgb(95, 224, 93) 0%,
+    hsla(133, 68%, 55%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    225deg,
+    rgb(95, 224, 93) 0%,
+    hsla(133, 68%, 55%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    225deg,
+    rgb(95, 224, 93) 0%,
+    hsla(133, 68%, 55%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#2AD427", endColorstr="#3CDA5F", GradientType=1 );
+}
+.women-img {
+  filter: drop-shadow(20px);
+}
+.card {
+  position: absolute;
+  z-index: 1000;
+}
+.navbar {
+  z-index: 20000;
+}
+
+.bgBannerSignup {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgb(160, 155, 155) 11%,
+    rgba(177, 249, 198, 1) 59%
+  );
+}

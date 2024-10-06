@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser'); // Import body-parser
+const cors = require('cors'); // Import cors
 
 const app = express();
 const port = 3000;
@@ -8,7 +9,8 @@ const port = 3000;
 app.use(bodyParser.json()); // Use body-parser to parse JSON
 // Middleware to parse JSON requests
 app.use(express.json());
-
+// Enable CORS for all routes
+app.use(cors()); // Add this line to enable CORS
 // MySQL connection
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -74,6 +76,44 @@ app.get('/api/pets', (req, res) => {
         res.json(results);
     });
 });
+// Get a single pet by ID
+app.get('/api/pet', (req, res) => {
+    const petId = req.query.id;
+
+    // Log the incoming query parameter
+    console.log('Received Pet ID:', petId);
+
+    if (!petId) {
+        return res.status(400).json({ message: 'Pet ID is required' });
+    }
+
+    // Log the query being executed
+    console.log('Executing Query: SELECT * FROM Pets WHERE PetID = ?', [petId]);
+
+    connection.query('SELECT * FROM Pets WHERE PetID = ?', [petId], (err, results) => {
+        if (err) {
+            console.error('Database Error:', err);
+            return res.status(500).json({ error: err });
+        }
+
+        // Log the results returned from the database
+        console.log('Query Results:', results);
+
+        if (results.length === 0) {
+            return res.status(404).json({ message: 'Pet not found' });
+        }
+
+        res.json(results[0]);
+    });
+});
+
+
+
+
+
+
+
+
 
 // Create a new pet
 app.post('/api/pets', (req, res) => {
